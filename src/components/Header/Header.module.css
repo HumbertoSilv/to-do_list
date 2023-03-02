@@ -1,0 +1,23 @@
+.header {
+    background: var(--gray-700);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.0rem 0;
+    height: 20rem;
+}
+
+.header img {
+    padding: 0 1rem;
+}
+.header h1 {
+    height: 4.8rem;
+    font-size: 4rem;
+    line-height: 37px;
+
+    color: var(--blue);
+}
+.header h1:nth-child(odd) {
+    color: var(--purple-dark);
+}
+
