@@ -8,7 +8,7 @@ import { Todo } from "./components/Todo";
 import clipBoard from "./assets/Clipboard.svg";
 
 export const App = () => {
-  const [todos, setTodos] = useState([1])
+  const [todo, setTodo] = useState(["0", "1", "2"])
 
   return (
     <div>
@@ -17,12 +17,20 @@ export const App = () => {
       <main className={styles.main}>
         <TodoHeader />
         <div className={styles.todoContainer}>
-          {todos.length ?
+          {todo.length ?
+            todo.map((todo, index) => {
+              return (
+                <Todo
+                  content={todo}
+                  key={index}
+                />
+              );
+            }) :
             (<div className={styles.clipboard}>
               <img src={clipBoard} alt="ClipBoard image" />
               <span>Você ainda não tem tarefas cadastradas</span>
               <span>Crie tarefas e organize seus itens a fazer</span>
-            </div>) : (<Todo />)
+            </div>)
           }
         </div>
       </main>
