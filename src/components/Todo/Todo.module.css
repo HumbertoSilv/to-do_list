@@ -31,9 +31,9 @@
 }
 .todo label {
   position: relative;
-  padding-left: 3.2em;
+  padding: 1em 3.2em;
   width: 85%;
-  height: 85px;
+  min-height: 85px;
   display: flex;
   align-items: center;
   cursor: pointer;

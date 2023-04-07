@@ -18,6 +18,11 @@
     flex-grow: 1;
 }
 
+.inputContainer:focus-within textarea {
+	outline: transparent;
+	box-shadow: 0 0 0 1px var(--purple);
+}
+
 .inputContainer button {
     background: var(--blue-dark);
     border-radius: 8px;

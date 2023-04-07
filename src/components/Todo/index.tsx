@@ -1,26 +1,31 @@
 import { Trash } from "phosphor-react";
 import styles from "./Todo.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TodoClass } from "../../application/models/Todo";
 
-export const Todo = ({ content }: { content: string}) => {
-  const [check, setCheck] = useState(false)
+interface ITodo {
+  todo: TodoClass
+  onCompleteTodo: (todoId: string) => void
+}
+
+export const Todo = ({ todo, onCompleteTodo }: ITodo) => {
+  const [check, setCheck] = useState(todo.done)
 
   const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.checked);
     setCheck(e.target.checked)
+    onCompleteTodo(todo.id)
   }
 
   return (
     <div className={check ? `${styles.done} ${styles.todo}` : styles.todo}>
       <input 
         type="checkbox" 
-        id={content} 
-        value={0}
+        id={todo.id} 
         checked={check}
         onChange={handleChecked}
       />
-      <label  htmlFor={content}>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam illo eligendi nesciunt aut libero. Dolor dolorum velit ea autem maxime sapiente ad quae quia, officiis incidunt expedita fugiat pariatur sit!
+      <label  htmlFor={todo.id}>
+        {todo.content}
       </label>
       <button
         onClick={() => { }}

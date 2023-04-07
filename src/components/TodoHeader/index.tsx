@@ -1,10 +1,15 @@
 import styles from "./TodoHeader.module.css";
 
-export const TodoHeader = () => {
+interface ITodoHeader {
+  registeredTodo: number;
+  completedTodo: number;
+}
+
+export const TodoHeader = ({registeredTodo, completedTodo}: ITodoHeader) => {
   return (
     <header className={styles.header}>
-      <p>Tarefas criadas <span>0</span></p>
-      <p>Concluídas <span>0</span></p>
+      <p>Tarefas criadas <span>{registeredTodo}</span></p>
+      <p>Concluídas <span>{completedTodo}</span></p>
     </header>
   )
 }
