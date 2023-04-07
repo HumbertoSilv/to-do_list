@@ -29,13 +29,18 @@ export const App = () => {
       }
     })
 
-    const completed = todo.filter((todo) => todo.done)
+    const completed = todo.filter((todo) => todo.done)    
     setCompletedTodo(completed.length)    
+  }
+
+  const deleteTodo = (todoId: string) => {
+    const newTodoArray = todo.filter((todo) => todo.id !== todoId)
+    setTodo(newTodoArray)
   }
 
   useEffect(() => {    
     setRegisteredTodo(todo.length)
-    
+    setCompletedTodo(todo.filter((todo) => todo.done).length)    
   }, [todo, completedTodo, registeredTodo])
 
   return (
@@ -54,6 +59,7 @@ export const App = () => {
                 <Todo
                   todo={todo}
                   onCompleteTodo={completeTodo}
+                  onDeleteTodo={deleteTodo}
                   key={index}
                 />
               );

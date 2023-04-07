@@ -6,15 +6,23 @@ import { TodoClass } from "../../application/models/Todo";
 interface ITodo {
   todo: TodoClass
   onCompleteTodo: (todoId: string) => void
+  onDeleteTodo: (todoId: string) => void
 }
 
-export const Todo = ({ todo, onCompleteTodo }: ITodo) => {
-  const [check, setCheck] = useState(todo.done)
+export const Todo = ({ todo, onCompleteTodo, onDeleteTodo }: ITodo) => {
+  const [check, setCheck] = useState(todo.done)  
 
-  const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCheck(e.target.checked)
+  const handleChecked = () => {
     onCompleteTodo(todo.id)
   }
+
+  const handleDelete = () => {
+    onDeleteTodo(todo.id)
+  }
+
+   useEffect(() => {
+    setCheck(todo.done)
+   }, [todo.done])
 
   return (
     <div className={check ? `${styles.done} ${styles.todo}` : styles.todo}>
@@ -28,7 +36,7 @@ export const Todo = ({ todo, onCompleteTodo }: ITodo) => {
         {todo.content}
       </label>
       <button
-        onClick={() => { }}
+        onClick={handleDelete}
         title="Delete todo"
       >
         <Trash size={25} />
