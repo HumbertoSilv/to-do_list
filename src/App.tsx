@@ -10,7 +10,7 @@ import { TodoClass } from "./application/models/Todo";
 
 
 export const App = () => {
-  const [todo, setTodo] = useState<Array<TodoClass>>([])
+  const [todo, setTodo] = useState<Array<TodoClass>>(JSON.parse(localStorage.getItem("@Todo:environment") || ''))
   const [completedTodo, setCompletedTodo] = useState<number>(0)
   const [registeredTodo, setRegisteredTodo] = useState<number>(0)  
 
@@ -40,7 +40,9 @@ export const App = () => {
 
   useEffect(() => {    
     setRegisteredTodo(todo.length)
-    setCompletedTodo(todo.filter((todo) => todo.done).length)    
+    setCompletedTodo(todo.filter((todo) => todo.done).length)
+
+    localStorage.setItem("@Todo:environment", JSON.stringify(todo))
   }, [todo, completedTodo, registeredTodo])
 
   return (
