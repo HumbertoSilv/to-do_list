@@ -1,0 +1,39 @@
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: calc(0px - 1.7rem - 6px) auto;
+    gap: 8px;
+    width: 65%;
+}
+
+.inputContainer textarea {
+    background: var(--gray-500);
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+    resize: none;
+    line-height: 3.2;
+    height: 5.3rem;
+    padding: 0 2rem;
+    color: var(--gray-100);
+    flex-grow: 1;
+}
+
+.inputContainer:focus-within textarea {
+	outline: transparent;
+	box-shadow: 0 0 0 1px var(--purple);
+}
+
+.inputContainer button {
+    background: var(--blue-dark);
+    border-radius: 8px;
+    padding: 0 2rem;
+    color: var(--gray-100);
+    border: none;
+    font-weight: 700;
+
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.inputContainer button:hover {
+    background: var(--blue);
+}

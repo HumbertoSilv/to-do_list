@@ -1,0 +1,27 @@
+.main {
+    margin: 8rem auto;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.todoContainer {
+    border-top: 1px solid #333333;
+    border-radius: 8px;
+    margin-top: 3rem;
+}
+
+.clipboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+}
+
+.clipboard img {
+    padding-bottom: 3rem;
+}
+
+.clipboard span:nth-child(even) {
+    font-weight: 700;
+}

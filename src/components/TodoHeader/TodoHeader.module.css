@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.header p {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--blue);
+}
+
+.header p:nth-child(even) {
+    color: var(--purple);
+}
+
+.header p span {
+    background: var(--gray-400);
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    margin: 8px;
+    color: var(--gray-200);
+}
